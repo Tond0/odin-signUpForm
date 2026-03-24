@@ -1,215 +1,284 @@
-@import 'node_modules/modern-normalize/modern-normalize.css';
+@import "node_modules/modern-normalize/modern-normalize.css";
 
+/* #region Custom Properties */
+/* MARK: Material Design Color Tokens */
 :root {
-    --md-sys-color-primary: rgb(71 103 47);
-    --md-sys-color-surface-tint: rgb(71 103 47);
-    --md-sys-color-on-primary: rgb(255 255 255);
-    --md-sys-color-primary-container: rgb(200 238 168);
-    --md-sys-color-on-primary-container: rgb(49 79 26);
-    --md-sys-color-secondary: rgb(86 98 75);
-    --md-sys-color-on-secondary: rgb(255 255 255);
-    --md-sys-color-secondary-container: rgb(218 231 201);
-    --md-sys-color-on-secondary-container: rgb(63 74 52);
-    --md-sys-color-tertiary: rgb(0 106 105);
-    --md-sys-color-on-tertiary: rgb(255 255 255);
-    --md-sys-color-tertiary-container: rgb(156 241 239);
-    --md-sys-color-on-tertiary-container: rgb(0 80 79);
-    --md-sys-color-error: rgb(186 26 26);
-    --md-sys-color-on-error: rgb(255 255 255);
-    --md-sys-color-error-container: rgb(255 218 214);
-    --md-sys-color-on-error-container: rgb(147 0 10);
-    --md-sys-color-background: rgb(249 250 239);
-    --md-sys-color-on-background: rgb(25 29 22);
-    --md-sys-color-surface: rgb(249 250 239);
-    --md-sys-color-on-surface: rgb(25 29 22);
-    --md-sys-color-surface-variant: rgb(224 228 214);
-    --md-sys-color-on-surface-variant: rgb(68 72 62);
-    --md-sys-color-outline: rgb(116 121 109);
-    --md-sys-color-outline-variant: rgb(196 200 186);
-    --md-sys-color-shadow: rgb(0 0 0);
-    --md-sys-color-scrim: rgb(0 0 0);
-    --md-sys-color-inverse-surface: rgb(46 49 42);
-    --md-sys-color-inverse-on-surface: rgb(240 242 231);
-    --md-sys-color-inverse-primary: rgb(173 210 142);
-    --md-sys-color-primary-fixed: rgb(200 238 168);
-    --md-sys-color-on-primary-fixed: rgb(11 32 0);
-    --md-sys-color-primary-fixed-dim: rgb(173 210 142);
-    --md-sys-color-on-primary-fixed-variant: rgb(49 79 26);
-    --md-sys-color-secondary-fixed: rgb(218 231 201);
-    --md-sys-color-on-secondary-fixed: rgb(20 30 12);
-    --md-sys-color-secondary-fixed-dim: rgb(190 203 174);
-    --md-sys-color-on-secondary-fixed-variant: rgb(63 74 52);
-    --md-sys-color-tertiary-fixed: rgb(156 241 239);
-    --md-sys-color-on-tertiary-fixed: rgb(0 32 31);
-    --md-sys-color-tertiary-fixed-dim: rgb(128 213 211);
-    --md-sys-color-on-tertiary-fixed-variant: rgb(0 80 79);
-    --md-sys-color-surface-dim: rgb(217 219 209);
-    --md-sys-color-surface-bright: rgb(249 250 239);
-    --md-sys-color-surface-container-lowest: rgb(255 255 255);
-    --md-sys-color-surface-container-low: rgb(243 245 234);
-    --md-sys-color-surface-container: rgb(237 239 228);
-    --md-sys-color-surface-container-high: rgb(231 233 222);
-    --md-sys-color-surface-container-highest: rgb(226 227 217);
+  --md-sys-color-primary: rgb(71 103 47);
+  --md-sys-color-surface-tint: rgb(71 103 47);
+  --md-sys-color-on-primary: rgb(255 255 255);
+  --md-sys-color-primary-container: rgb(200 238 168);
+  --md-sys-color-on-primary-container: rgb(49 79 26);
+  --md-sys-color-secondary: rgb(86 98 75);
+  --md-sys-color-on-secondary: rgb(255 255 255);
+  --md-sys-color-secondary-container: rgb(218 231 201);
+  --md-sys-color-on-secondary-container: rgb(63 74 52);
+  --md-sys-color-tertiary: rgb(0 106 105);
+  --md-sys-color-on-tertiary: rgb(255 255 255);
+  --md-sys-color-tertiary-container: rgb(156 241 239);
+  --md-sys-color-on-tertiary-container: rgb(0 80 79);
+  --md-sys-color-error: rgb(186 26 26);
+  --md-sys-color-on-error: rgb(255 255 255);
+  --md-sys-color-error-container: rgb(255 218 214);
+  --md-sys-color-on-error-container: rgb(147 0 10);
+  --md-sys-color-background: rgb(249 250 239);
+  --md-sys-color-on-background: rgb(25 29 22);
+  --md-sys-color-surface: rgb(249 250 239);
+  --md-sys-color-on-surface: rgb(25 29 22);
+  --md-sys-color-surface-variant: rgb(224 228 214);
+  --md-sys-color-on-surface-variant: rgb(68 72 62);
+  --md-sys-color-outline: rgb(116 121 109);
+  --md-sys-color-outline-variant: rgb(196 200 186);
+  --md-sys-color-shadow: rgb(0 0 0 0.4);
+  --md-sys-color-scrim: rgb(0 0 0 0.4);
+  --md-sys-color-inverse-surface: rgb(46 49 42);
+  --md-sys-color-inverse-on-surface: rgb(240 242 231);
+  --md-sys-color-inverse-primary: rgb(173 210 142);
+  --md-sys-color-primary-fixed: rgb(200 238 168);
+  --md-sys-color-on-primary-fixed: rgb(11 32 0);
+  --md-sys-color-primary-fixed-dim: rgb(173 210 142);
+  --md-sys-color-on-primary-fixed-variant: rgb(49 79 26);
+  --md-sys-color-secondary-fixed: rgb(218 231 201);
+  --md-sys-color-on-secondary-fixed: rgb(20 30 12);
+  --md-sys-color-secondary-fixed-dim: rgb(190 203 174);
+  --md-sys-color-on-secondary-fixed-variant: rgb(63 74 52);
+  --md-sys-color-tertiary-fixed: rgb(156 241 239);
+  --md-sys-color-on-tertiary-fixed: rgb(0 32 31);
+  --md-sys-color-tertiary-fixed-dim: rgb(128 213 211);
+  --md-sys-color-on-tertiary-fixed-variant: rgb(0 80 79);
+  --md-sys-color-surface-dim: rgb(217 219 209);
+  --md-sys-color-surface-bright: rgb(249 250 239);
+  --md-sys-color-surface-container-lowest: rgb(255 255 255);
+  --md-sys-color-surface-container-low: rgb(243 245 234);
+  --md-sys-color-surface-container: rgb(237 239 228);
+  --md-sys-color-surface-container-high: rgb(231 233 222);
+  --md-sys-color-surface-container-highest: rgb(226 227 217);
 
-    --logo-bg: rgba(0, 0, 0, 0.4);
+  --logo-bg: rgba(0, 0, 0, 0.4);
 }
+/* #endregion */
 
+/* #region Font Faces */
+/* MARK: Custom Fonts */
 @font-face {
-  font-family: NorseBold; /* set name */
-  src: url(fonts/Norsebold.otf); /* url of the font */
+  font-family: NorseBold;
+  src: url(fonts/Norsebold.otf);
 }
+/* #endregion */
 
+/* #region Base Styles */
+/* MARK: HTML and Typography */
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
+/* #endregion */
 
+/* #region Layout Components */
+/* MARK: Main Container and Hero */
 .main-container {
-    display: flex;
-    width: 100%;
-    height: 100vh;
+  display: flex;
+  width: 100%;
+  height: 100vh;
 }
 
 .hero-section {
-    width: 40%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        url('images/Leafs.jpg') center/cover no-repeat;
+  width: 40%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("images/Leafs.jpg") center/cover no-repeat;
 }
 
 .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 1.2rem;
-    gap: 1.5rem;
-    background-color: var(--logo-bg);
-    transform: translateY(-20vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1.2rem;
+  gap: 1.5rem;
+  background-color: var(--logo-bg);
+  transform: translateY(-20vh);
 }
 
 .logo-img {
-    height: 10rem;
-    width: auto;
+  height: 10rem;
+  width: auto;
 }
 
 .logo-text {
-    font-size: 10rem;
-    font-family: "NorseBold";
-    font-weight: 400;
-    letter-spacing: 0.5rem;
-    color: #ffffff;
-    text-transform: uppercase;
+  font-size: 10rem;
+  font-family: NorseBold;
+  font-weight: 400;
+  letter-spacing: 0.5rem;
+  color: #ffffff;
+  text-transform: uppercase;
 }
 
 .photo-credits {
-    position: absolute;
-    bottom: 1rem;
-    width: 100%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.2rem;
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+}
+/* #endregion */
+
+/* #region Typography Utilities */
+/* MARK: Text Classes */
+.text {
+  font-family: "Inter", system-ui;
+  font-weight: 400;
+  color: var(--md-sys-color-on-surface);
 }
 
-.text
-{
-    font-family: "Inter", system-ui;
-    font-weight: 400;
-    color: var(--md-sys-color-on-surface);
+.text-label {
+  font-size: 1.4rem;
 }
 
-.text-label
-{
-    font-size: 1.2rem;
+.text-small {
+  font-size: 1.8rem;
 }
 
-.text-small
-{
-    font-size: 1.6rem;
+.text-medium {
+  font-size: 2.4rem;
 }
 
-.text-medium
-{
-    font-size: 2.4rem;
+.text-large {
+  font-size: 3.2rem;
 }
 
-.text-large
-{
-    font-size: 3.2rem;
+.text-emphasized-high {
+  font-weight: 600;
 }
 
-.text-emphasized
-{
-    font-weight: 600;
+.text-emphasized-low {
+  font-weight: 450;
 }
+/* #endregion */
 
+/* #region Button Components */
+/* MARK: Base Button and Variants */
 .btn {
-    font-weight: 500;
-    padding: 1rem 2.4rem;
-    border-radius: 0.4rem;
-    
-    border: none;
-    cursor: pointer;
+  font-weight: 500;
+  padding: 1rem 2.4rem;
+  border-radius: 0.4rem;
+
+  border: 0.5px solid var(--md-sys-color-outline-variant);
+  box-shadow: 0 8px 32px var(--md-sys-color-shadow);
+
+  cursor: pointer;
 }
 
 .btn-primary {
-    color: var(--md-sys-color-on-primary-container);
-    background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  background-color: var(--md-sys-color-primary-container);
 }
 
 .btn-primary:hover {
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-    background-color: var(--md-sys-color-primary-fixed-dim);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  background-color: var(--md-sys-color-primary-fixed-dim);
+}
+
+.btn-small {
+  width: auto; 
+  height: 36px;
+  padding: 0 16px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.btn-medium {
+  width: auto;
+  height: 44px;
+  padding: 0 20px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.btn-large {
+  width: auto;
+  height: 56px;
+  padding: 0 24px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+/* #endregion */
+
+/* #region Form Components */
+/* MARK: Form Wrapper and Grid */
+.form-wrapper {
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.08);
+
+  background-color: var(--md-sys-color-surface-container-lowest);
+
+  display: flex;
+  flex-flow: row nowrap;
+
+  width: 100%;
+
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.input-grid {
+  border: none;
+
+  flex: 0.5 0 2rem;
+  padding: 3rem;
 }
 
 .form-section {
-    flex: 1;
-    height: 100%;
-    background-color: var(--md-sys-color-surface);
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  flex: 1;
+  height: 100%;
+  background-color: var(--md-sys-color-surface);
 
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 4rem;
 }
 
-.form-header
-{
-    padding: 3.2rem 3.2rem 0 3.2rem;
+.form-header {
+  padding: 3.2rem 3.2rem 0 3.2rem;
 }
 
-.form-footer
-{
-    padding: 3.2rem 3.2rem 0 3.2rem;
+.form-footer {
+  padding: 3.2rem 3.2rem 0 3.2rem;
 }
 
-.fieldContainer
-{
-    display: flex;
-    flex-flow: row wrap;
+.fieldContainer {
+  display: flex;
+  flex-flow: row wrap;
 
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 
-    gap: 1.2rem;
+  gap: 1.2rem;
 }
 
-.form-control
-{
-    display: flex;
-    flex-flow: column nowrap;
+.form-control {
+  display: flex;
+  flex-flow: column nowrap;
 
-    flex: 1 0 calc(50% - 1.2rem);
+  flex: 1 0 calc(50% - 1.2rem);
 
-    gap: 0.2rem;
-    justify-content: flex-start;
-    align-items: flex-start;
+  gap: 0.2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.form-input
-{
-    width: 100%;
-    height: 100%;
+.form-input {
+  border: 0.5px solid var(--md-sys-color-outline-variant);
+  border-radius: 4px;
+
+  padding: 8px 12px;
+
+  box-shadow: inset 0 0 1px var(--md-sys-color-shadow);
+
+  width: 100%;
+  height: 100%;
 }
+/* #endregion */
