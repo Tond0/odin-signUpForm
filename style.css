@@ -295,7 +295,7 @@ html {
   border-color: blue;
 }
 
-.form-input:invalid {
+.form-input:user-invalid {
   border-color: red;
 }
 
