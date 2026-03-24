@@ -1,4 +1,4 @@
-@import "node_modules/modern-normalize/modern-normalize.css";
+@import "modern-normalize.css";
 
 /* #region Custom Properties */
 /* MARK: Material Design Color Tokens */
@@ -233,7 +233,7 @@ html {
 .input-grid {
   border: none;
 
-  flex: 0.5 0 2rem;
+  flex: 0.6 0 2rem;
   padding: 3rem;
 }
 
